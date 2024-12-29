@@ -1,0 +1,284 @@
+body {
+    margin: 0;
+    font-family:monospace;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+a {
+    color: #55A52A;
+    text-decoration: none;
+}
+
+.errorMessage {
+    color: red;
+    text-align: center;
+    max-width: 600px;
+    height: 30px;
+    margin: 1px;
+}
+
+/* Top part */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 10px 20px;
+}
+
+.nav-links { /* Right side */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+/* Main part */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.text, .login {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: top;
+    max-width: 500px;
+}
+
+.text {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.login {
+    padding-top: 50px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form {
+    max-width: 400px;
+    color: #ffffff;
+    width: 100%;
+    background: #000000;
+    padding: 20px;
+}
+
+.login-form h2 {
+    margin-top: 0;
+}
+
+.login-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: large;
+}
+
+.login-form button::after {
+    content: '→';
+    color: #55A52A;
+    margin-left: 10px;
+}
+
+.login-form button:hover {
+    background-color: #55A52A;
+    color: #ffffff;
+}
+
+.login-form button:hover::after {
+    color: #ffffff;
+}
+
+/* Info Page */
+
+.info {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.errorMessage {
+    padding: 10px;
+}
+
+/* Control Page */
+.main {
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.row1 {
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+}
+
+.tutorial {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+}
+
+.tutorialText {
+    flex: 1;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+}
+
+.data {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.latencies {
+    text-align: center;
+    color: #ffffff;
+    background-color: #000000;
+    flex: 1;
+}
+
+.sensors {
+    flex: 2;
+    margin-top: 10px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #000000;
+    font-size: medium;
+}
+
+.sensor {
+    font-size: large;
+}
+
+
+.row2 {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.button-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    }
+.button-row {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    justify-content: space-evenly;
+
+}
+
+.button {
+    flex: 1;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color:#55A52A;
+    color:#000000;
+    outline: none;
+}
+
+.dummy-button {
+    flex: 1;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: none;
+    background-color:#ffffff;
+    outline: none;
+}
+
+
+.row2 .button:active {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.row2 .button.pressed {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.row3 {
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+}
+
+.console {
+    height: 300px;
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+}
+
+.consoleTextArea {
+    height: 230px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    font-size: medium;
+}
+
+.consoleText {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}

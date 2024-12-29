@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    font-family:monospace;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+a {
+    color: #55A52A;
+    text-decoration: none;
+}
+
+.errorMessage {
+    color: red;
+    text-align: center;
+}
+
+.successMessage {
+    color: green;
+    text-align: center;
+}
+
+
+/* Top part */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 10px 20px;
+}
+
+.nav-links { /* Right side */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+/* Main part */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.text, .login {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: top;
+    max-width: 500px;
+}
+
+.text {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.login {
+    padding-top: 50px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form {
+    max-width: 400px;
+    color: #ffffff;
+    width: 100%;
+    background: #000000;
+    padding: 20px;
+}
+
+.login-form h2 {
+    margin-top: 0;
+}
+
+.login-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: large;
+}
+
+.login-form button::after {
+    content: '→';
+    color: #55A52A;
+    margin-left: 10px;
+}
+
+.login-form button:hover {
+    background-color: #55A52A;
+    color: #ffffff;
+}
+
+.login-form button:hover::after {
+    color: #ffffff;
+}
+
+input::placeholder {
+    opacity: 0.5;
+}
+
+/* Admin Page */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+button::after {
+    content: '→';
+    color: #55A52A;
+    margin-left: 10px;
+}
+
+/* Left side - New login code*/
+.new-code-form {
+    flex: 1;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+    color: #ffffff;
+    background-color: #000000;
+
+}
+
+.new-code-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: large;
+}
+
+.new-code-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+}
+
+.new-code-form button:hover {
+    background-color: #55A52A;
+    color: #ffffff;
+}
+
+.new-code-form button:hover::after {
+    color: #ffffff;
+}
+
+
+/* Left side - New login code*/
+.bot-token-form {
+    flex: 1;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+}
+
+.bot-token-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    box-sizing: border-box;
+    background-color: hsl(0, 0%, 0%);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: large;
+}
+
+.bot-token-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #000000;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+}
+
+.bot-token-form button:hover {
+    background-color: #55A52A;
+    color: #ffffff;
+}
+
+.bot-token-form button:hover::after {
+    color: #ffffff;
+}
+
+
+

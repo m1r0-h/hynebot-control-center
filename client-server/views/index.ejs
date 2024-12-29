@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hynebot Control Center</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <!-- <img src="logo.png" alt="Logo" /> -->
+             <p>Home</p>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/info">Info</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Left side -->
+        <div class="text">
+            <h1>Hynebot Control Center</h1>
+            <p>
+                This interface allows users to control different hynebots over the internet.
+                In order to be able to control the hynebot,
+                you must get login credentials from the system administator and you must establish a 
+                video/sound connection as agreed first (Teams/Zoom...).
+                The system administrator then activates hynebot. Control it safely and consider others.
+            </p>
+            <a href="/info">More instructions-></a>
+        </div>
+        <!-- Right side -->
+        <div class="login">
+            <form class="login-form" id="loginForm">
+                <h2>Login</h2>
+                <label for="code">Login code:</label>
+                <input type="password" id="code" name="code" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="errorMessage" id="errorMessage" style="color: red;"></div>
+        </div>
+    </div>
+    <script nonce="<%= nonce %>">
+        const AUTH_URL = '<%= authAddress %>';
+    </script>
+    <script src="js/index.js"></script>
+</body>
+</html>

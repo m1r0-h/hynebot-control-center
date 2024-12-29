@@ -1,0 +1,30 @@
+{
+  "name": "hynebot-control-center",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:preinstall": "npm run dev:preinstall:auth && npm run dev:preinstall:client && npm run dev:preinstall:websocket && npm run dev:preinstall:admin",
+    "dev:preinstall:auth": "cd authentication-server && npm install",
+    "dev:preinstall:client": "cd client-server && npm install",
+    "dev:preinstall:websocket": "cd websocket-server && npm install",
+    "dev:preinstall:admin": "cd admin-server && npm install",
+    "preinstall": "npm run preinstall:auth && npm run preinstall:client && npm run preinstall:websocket && npm run preinstall:admin",
+    "preinstall:auth": "cd authentication-server && npm install --production",
+    "preinstall:client": "cd client-server && npm install --production",
+    "preinstall:websocket": "cd websocket-server && npm install --production",
+    "preinstall:admin": "cd admin-server && npm install --production",
+    "dev:auth": "cd authentication-server && npm run dev",
+    "dev:client": "cd client-server && npm run dev",
+    "dev:websocket": "cd websocket-server && npm run dev",
+    "dev:admin": "cd admin-server && npm run dev",
+    "auth": "cd authentication-server && npm start",
+    "client": "cd client-server && npm start",
+    "websocket": "cd websocket-server && npm start",
+    "admin": "cd admin-server && npm start"
+  },
+  "keywords": ["hynebot"],
+  "author": "",
+  "license": "ISC"
+}

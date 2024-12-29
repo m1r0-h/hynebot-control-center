@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hynebot Control Center</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo" id="logout">
+             <p>Logout</p>
+        </a>
+    </nav>
+    
+    <div class="main">
+        <!-- Left side - New login code -->
+        <div class="left side">
+            <form class="new-code-form" id="new-code-form">
+                <h2>New Login Code</h2>
+                <p>This code is used to login as user.
+                     Bot ID means what bot this new code can control (needs to be same as bots). 
+                     In addition, the code has a start and end date during which the code can be used.</p>
+                <input type="code" id="code" name="code" placeholder="Login Code" required>
+                <input type="id" id="id" name="id" placeholder="Bot ID" required>
+                <label for="startsAt">Start time:</label>
+                <input type="datetime-local" id="startsAt" name="startsAt"  required>
+                <label for="expiresAt">Expires At:</label>
+                <input type="datetime-local" id="expiresAt" name="expiresAt" required>
+                <button type="submit">Make New Code</button>
+            </form>
+            <div class="errorMessage" id="errorMessageLeft"></div>
+            <div class="successMessage" id="successMessage" style="color: green;"></div>
+        </div>
+        <!-- Right side - Bot token -->
+        <div class="right side">
+            <form class="bot-token-form" id="bot-token-form">
+                <h2>Get New Bot Token</h2>
+                <p>This form allows to make new tokens that bot can use to login.</p>
+                <input type="botId" id="botId" name="botId" placeholder="Bot ID" required>
+                <button type="submit">Get Bot Token</button>
+            </form>
+            <div class="errorMessage" id="errorMessageRight"></div>
+        </div>
+    </div>
+    <script nonce="<%= nonce %>">
+        const AUTH_URL = '<%= authAddress %>';
+    </script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>

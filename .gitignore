@@ -1,0 +1,19 @@
+.DS_Store
+key.key
+certificate.cert
+
+## authentication-server
+/authentication-server/node_modules/
+/authentication-server/.env
+
+## client-server
+/client-server/node_modules/
+/client-server/.env
+
+## websocket-server
+/websocket-server/node_modules/
+/websocket-server/.env
+
+## authentication-server
+/admin-server/node_modules/
+/admin-server/.env

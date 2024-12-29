@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hynebot Control Center</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo" id="logout">
+             <p>Logout</p>
+        </a>
+    </nav>
+
+    <div class="main">
+        <div class="errorMessageArea">
+            <div class="errorMessage" id="errorMessage"></div>
+        </div>
+        <div class="errorMessageArea">
+            <div class="errorMessage" id="botErrorMessage"></div>
+        </div>
+        <div class="errorMessageArea">
+            <div class="errorMessage" id="disconnectMessage"></div>
+        </div>
+        <!-- Row 1 -->
+        <div class="row1">
+            <div class="tutorial">
+                <div class="tutorialText">
+                    <p>Send commands to the bot by pressing buttons on the page or you can use keyboard.</p>
+                    <p>
+                        W = Forward<br>
+                        A = Left<br>
+                        S = Back<br>
+                        D = Right<br>
+                        E = Rotate Left<br>
+                        Q = Rotate Right
+                    </p>
+                </div>
+            </div>
+            <div class="data">
+                <div class="latencies">
+                    <p>Latency to server: <span id="latencyServer">Calculating...</span> ms</p>
+                    <p>Latency to bot: <span id="latencyBot">Calculating...</span> ms</p>
+                </div>
+                <div class="sensors">
+                    <p class="sensorText">Sensor 1: <br><span class="sensor" id="sensor1">Waiting data...</span></p>
+                    <p class="sensorText">Sensor 2: <br><span class="sensor" id="sensor2">Waiting data...</span></p>
+                    <p class="sensorText">Sensor 3: <br><span class="sensor" id="sensor3">Waiting data...</span></p>
+                </div>
+            </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="row2">
+            <div class="button-panel">
+                <div class="button-row">
+                    <button class="button" id="rotateLeft">↻</button>
+                    <button class="button" id="forward">↑</button>
+                    <button class="button" id="rotateRight">↺</button>
+                    <button class="button" id="up">UP</button>
+                </div>
+                <div class="button-row">
+                    <button class="button" id="left">←</button>
+                    <button class="button" id="back">↓</button>
+                    <button class="button" id="right">→</button>
+                    <button class="button" id="down">DOWN</button>
+                </div>
+                <!--
+                <div class="button-row">
+                    <button class="dummy-button"></button>
+                    <button class="dummy-button"></button>
+                    <button class="dummy-button"></button>
+                    <button class="dummy-button"></button>
+                </div>
+                -->
+            </div>
+        </div>
+        <!-- Row 3 -->
+        <div class="row3">
+            <div class="console">
+                <h4>Sent: </h4>
+                <div class="consoleTextArea">
+                    <ul class="consoleText" id="sentConsoleList">
+                    </ul>
+                </div>
+            </div>
+            <div class="console">
+                <h4>Received:</h4>
+                <div class="consoleTextArea">
+                    <ul class="consoleText" id="receivedConsoleList">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script nonce="<%= nonce %>">
+        const WEBSOCKET_URL = '<%= websocketAddress %>';
+    </script>
+    <script nonce="<%= nonce %>" src="<%= socketioLibaryAddress %>"></script>
+    <script src="js/control.js"></script>
+</body>
+</html>
