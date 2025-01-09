@@ -43,7 +43,7 @@ SSL_CERT_PATH=../certificate.cert
 SSL_KEY_PATH=../key.key
 CLIENT_TOKEN_SECRET=secret_client
 BOT_TOKEN_SECRET=secret_bot
-PORT=123
+PORT=8083
 ALLOWED_ORIGINS=*
 VERIFICATION_TOKEN=verification_token_for_the_bot
 ```

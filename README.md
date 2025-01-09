@@ -1,6 +1,6 @@
 # Hynebot Control Center
 
-The idea behind this project is to allow and handle use of hynebots over the Internet. This repository contains all programs related to the server part.
+The idea behind this project is to allow and handle use of Hynebots over the Internet. This repository contains all programs related to the server part.
 
 ## Description
 
@@ -25,10 +25,14 @@ The bot's programs are in another repository (hynebot-control-center-bot).
 
 ## How to install server part
 
-### Database
+### Node.js and MongoDB
 
-First, you need to install mongodp, if you dont have it yet:
-https://www.mongodb.com/docs/manual/administration/install-community/
+First, you need to install node and mongodb, if you dont have it yet:
+
+- Node.js: https://nodejs.org/en/download
+- MongoDB: https://www.mongodb.com/docs/manual/administration/install-community/
+
+Check that both of them work.
 
 ### Clone the project.
 
@@ -70,9 +74,19 @@ You can add "dev:" front of the "preinstall" to also install devDependencies:
 npm run dev:preinstall
 ```
 
+If there are vulnerabilities in the packages you may need to go the server's folder and run "npm audit fix". Example:
+
+```bash
+cd admin-server/
+```
+
+```bash
+npm audit fix
+```
+
 ### SSL/TLS certificate:
 
-HTTPS needs SSL/TLS certificate to work. You can use your real ones or make self-signed certificates with this command.
+The server uses HTTPS and HTTPS needs SSL/TLS certificate to work. You can use your real ones or make self-signed certificates with this command.
 
 ```bash
 openssl req -nodes -new -x509 -keyout key.key -out certificate.cert
@@ -80,7 +94,7 @@ openssl req -nodes -new -x509 -keyout key.key -out certificate.cert
 
 ### .env files
 
-Make .env files in each server folder. You can see examples of .env files in each server's own README.md file.
+Make .env files in each server folder. You can see examples of .env files in each server's own README.md file. Remember to set addresses and tokens...
 
 ```bash
 nano admin-server/.env
@@ -91,7 +105,7 @@ nano websocket-server/.env
 
 ### Open nessesary ports
 
-If you want others to be able to use the system, remember to open the necessary ports.
+If you want others to be able to use the system, remember to open the necessary ports (TCP).
 
 ## How to run the servers
 
@@ -104,29 +118,74 @@ npm run websocket
 npm run admin
 ```
 
-or you can run servers with nodemon by adding dev: (for development). devDependencies must be installed.
+or you can run servers with nodemon by adding dev: (for development). "devDependencies" must be installed.
 
 ```bash
 npm run dev:client
 ```
 
-### Auto start (Ubuntu)
+### Auto start (Linux systemd)
 
 You can also make the servers to start automatically with systemd.
 
-For example, make a new service:
+For example, make a new services:
 
 ```bash
+sudo nano /etc/systemd/system/node-admin-server.service
+sudo nano /etc/systemd/system/node-authentication-server.service
 sudo nano /etc/systemd/system/node-client-server.service
+sudo nano /etc/systemd/system/node-websocket-server.service
 ```
+
+Examples:
+
+Admin (node-admin-server):
+
+```
+[Unit]
+Description=Automaticly start admin-server example
+After=network.target mongod.service
+
+[Service]
+ExecStart=/home/ubuntu/.nvm/versions/node/v23.6.0/bin/node /home/ubuntu/hynebot-control-center/admin-server/server.js
+Restart=no
+User=ubuntu
+Group=ubuntu
+Environment=NODE_ENV=production
+WorkingDirectory=/home/ubuntu/hynebot-control-center/admin-server
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Authentication (node-authentication-server):
+
+```
+[Unit]
+Description=Automaticly start authentication-server example
+After=network.target mongod.service
+
+[Service]
+ExecStart=/home/ubuntu/.nvm/versions/node/v23.6.0/bin/node /home/ubuntu/hynebot-control-center/authentication-server/server.js
+Restart=no
+User=ubuntu
+Group=ubuntu
+Environment=NODE_ENV=production
+WorkingDirectory=/home/ubuntu/hynebot-control-center/authentication-server
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Client (node-client-server):
 
 ```
 [Unit]
 Description=Automaticly start client-server example
-After=network.target mongod.service  # wait network and mongodp to start
+After=network.target mongod.service
 
 [Service]
-ExecStart=/home/ubuntu/.nvm/versions/node/v22.8.0/bin/node /home/ubuntu/hynebot-control-center/client-server/server.js # Start command (node path) and project's folder
+ExecStart=/home/ubuntu/.nvm/versions/node/v23.6.0/bin/node /home/ubuntu/hynebot-control-center/client-server/server.js
 Restart=no
 User=ubuntu
 Group=ubuntu
@@ -137,9 +196,36 @@ WorkingDirectory=/home/ubuntu/hynebot-control-center/client-server
 WantedBy=multi-user.target
 ```
 
+Client (node-websocket-server):
+
+```
+[Unit]
+Description=Automaticly start websocket-server example
+After=network.target mongod.service
+
+[Service]
+ExecStart=/home/ubuntu/.nvm/versions/node/v23.6.0/bin/node /home/ubuntu/hynebot-control-center/websocket-server/server.js
+Restart=no
+User=ubuntu
+Group=ubuntu
+Environment=NODE_ENV=production
+WorkingDirectory=/home/ubuntu/hynebot-control-center/websocket-server
+
+[Install]
+WantedBy=multi-user.target
+```
+
 You can do this for all the server parts.
 
-Once the services have been added.
+Once the services have been added, remember enable them.
+
+```bash
+sudo systemctl enable node-admin-server.service
+sudo systemctl enable node-authentication-server.service
+sudo systemctl enable node-client-server.service
+sudo systemctl enable node-websocket-server.service
+sudo systemctl daemon-reload
+```
 
 ```bash
 sudo reboot
@@ -163,18 +249,13 @@ use Hynebot
 show collections
 ```
 
+Example. Change the admin name and password to your own.
+
 ```bash
 db.Admin.insertOne({
     "username": "admin",
     "password": "d813490d953e3fa8eacd84b29ce7c36feeb73e0f28226d46c5b94ed424621c6bb609297693ae89ef97e38430c4ea851c8abd4cc81564e7e5066ea52288f8e608"
 })
-```
-
-```json
-{
-  "username": "admin",
-  "password": "encrypted password"
-}
 ```
 
 ## File structure

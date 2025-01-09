@@ -41,10 +41,10 @@ npm run dev
 ```
 SSL_CERT_PATH=../certificate.cert
 SSL_KEY_PATH=../key.key
-PORT=123
-AUTH_ADDRESS=https://localhost:123
-WEBSOCKET_ADDRESS=https://localhost:123
-SOCKETIO_LIBARY_ADDRESS=https://localhost:123/socket.io/socket.io.js
+PORT=8082
+AUTH_ADDRESS=https://xxx.xxx.xxx.xxx:8081
+WEBSOCKET_ADDRESS=https://xxx.xxx.xxx.xxx:8083
+SOCKETIO_LIBARY_ADDRESS=https://xxx.xxx.xxx.xxx:8083/socket.io/socket.io.js
 ```
 
 ## File structure

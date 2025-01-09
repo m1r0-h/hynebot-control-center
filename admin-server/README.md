@@ -41,8 +41,8 @@ npm run dev
 ```
 SSL_CERT_PATH=../certificate.cert
 SSL_KEY_PATH=../key.key
-PORT=123
-AUTH_ADDRESS=https://localhost:123
+PORT=8080
+AUTH_ADDRESS=https://xxx.xxx.xxx.xxx:8081
 ```
 
 ## File structure
