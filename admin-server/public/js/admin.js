@@ -1,5 +1,10 @@
 const token = localStorage.getItem("authToken");
 
+if (!token) {
+    // Redirect the user to the index page
+    window.location.href = "/";
+}
+
 // Notify user about token expiration
 const tokenParts = token.split(".");// Split the token (header, payload, signature)
 const payload = JSON.parse(atob(tokenParts[1]));// Decode the payload (atob() = decode Base64)
@@ -103,3 +108,17 @@ document.getElementById("bot-token-form").addEventListener("submit", async funct
         document.getElementById("errorMessage").textContent = "Something went wrong. Please try again later.";
     }
 });
+
+function logout() {
+    // Remove the JWT from localStorage
+    localStorage.removeItem("authToken");
+    
+    // Redirect to the index page
+    window.location.href = "/";
+  }
+  
+  // Delete authToken when logout button is pressed
+  document.getElementById("logout").addEventListener("click", function(e) {
+    e.preventDefault();
+    logout();
+  });
