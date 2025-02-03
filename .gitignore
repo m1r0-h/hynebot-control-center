@@ -10,9 +10,9 @@ certificate.cert
 /client-server/node_modules/
 /client-server/.env
 
-## websocket-server
-/websocket-server/node_modules/
-/websocket-server/.env
+## socket-server
+/socket-server/node_modules/
+/socket-server/.env
 
 ## authentication-server
 /admin-server/node_modules/

@@ -1,6 +1,6 @@
-# Websocket server
+# Socket server
 
-This Node.js server handles websocket connections (socket.io) and allow communication betweed clients and bots. This server uses json web tokens to authenticate users. The creation of these tokens takes place on the authentication server.
+This Node.js server handles socket connections (socket.io) and allow communication betweed clients and bots. This server uses json web tokens to authenticate users. The creation of these tokens takes place on the authentication server.
 
 ## Setup
 
@@ -85,3 +85,5 @@ Error messages:
 - "botErrorMessage" - This event is used to display bot error messages to the client.
 - "clear" - This event clears the "errorMessage" from the control page.
 - "clearBot" - This event clears the "botErrorMessage" from the control page.
+
+![Socket.io Events](socket_io_events.png)

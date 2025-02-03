@@ -12,10 +12,10 @@ const certPath = process.env.SSL_CERT_PATH;
 const keyPath = process.env.SSL_KEY_PATH;
 const port = process.env.PORT;
 const authAddress = process.env.AUTH_ADDRESS;
-const websocketAddress = process.env.WEBSOCKET_ADDRESS;
+const socketAddress = process.env.SOCKET_ADDRESS;
 const socketioLibaryAddress = process.env.SOCKETIO_LIBARY_ADDRESS;
 
-if (!certPath || !keyPath || !port || !authAddress || !websocketAddress || !socketioLibaryAddress) {
+if (!certPath || !keyPath || !port || !authAddress || !socketAddress || !socketioLibaryAddress) {
     throw new Error("Unable to find necessary things from the .env file - Check README");
 }
 
@@ -60,7 +60,7 @@ app.get("/", (req, res) => {
 
 // Route for control page
 app.get("/control", (req, res) => {
-    res.render("control", { websocketAddress, socketioLibaryAddress });
+    res.render("control", { socketAddress, socketioLibaryAddress });
 });
 
 // Route for info page

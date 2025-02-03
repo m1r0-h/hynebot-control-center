@@ -16,8 +16,8 @@ if (typeof io === "undefined") { // No socket io libary
   errorMessage.textContent = "Unable to load the Socket.IO client library. Try again later.";
 }else { // socket io libary OK
   if (token) { // Check token
-    // Connect to the websocket server
-    const socket = io(WEBSOCKET_URL, {
+    // Connect to the socket server
+    const socket = io(SOCKET_URL, {
     extraHeaders: {
       Authorization: `Bearer ${token}`
     }

@@ -43,7 +43,7 @@ SSL_CERT_PATH=../certificate.cert
 SSL_KEY_PATH=../key.key
 PORT=8082
 AUTH_ADDRESS=https://xxx.xxx.xxx.xxx:8081
-WEBSOCKET_ADDRESS=https://xxx.xxx.xxx.xxx:8083
+SOCKET_ADDRESS=https://xxx.xxx.xxx.xxx:8083
 SOCKETIO_LIBARY_ADDRESS=https://xxx.xxx.xxx.xxx:8083/socket.io/socket.io.js
 ```
 

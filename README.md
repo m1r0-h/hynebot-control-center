@@ -2,6 +2,8 @@
 
 The idea behind this project is to allow and handle use of Hynebots over the Internet. This repository contains all programs related to the server part.
 
+Bot part: https://github.com/m1r0-h/hynebot-control-center-bot
+
 ## Description
 
 Hynebot is telepresence robot build in the LUT's Hyneman center. It mainly consist ubuntu linux computer, motors and sensors. This Hynebot Control Center is developet to allow this hynebot to be used over the internet task like teaching and visiting.
@@ -40,7 +42,9 @@ You can clone the repository with this command.
 
 ```bash
 git clone git@github.com:m1r0-h/hynebot-control-center.git
+```
 
+```bash
 cd hynebot-control-center/
 ```
 
@@ -51,7 +55,7 @@ The server part of the project consists of four different servers. They are in d
 - **admin-server** admin user interface
 - **client-server** client user interface
 - **authenticatio-server** handles JWT authentication
-- **websocket-server** handles socket io connections between client and bot
+- **socket-server** handles socket io connections between client and bot
 
 You can install all necessary node modules for all the servers with command:
 
@@ -65,7 +69,7 @@ or you can only install one server at the time:
 npm run preinstall:admin
 npm run preinstall:auth
 npm run preinstall:client
-npm run preinstall:websocket
+npm run preinstall:socket
 ```
 
 You can add "dev:" front of the "preinstall" to also install devDependencies:
@@ -98,9 +102,18 @@ Make .env files in each server folder. You can see examples of .env files in eac
 
 ```bash
 nano admin-server/.env
+```
+
+```bash
 nano authentication-server/.env
+```
+
+```bash
 nano client-server/.env
-nano websocket-server/.env
+```
+
+```bash
+nano socket-server/.env
 ```
 
 ### Open nessesary ports
@@ -113,8 +126,17 @@ You can run servers with these commands
 
 ```bash
 npm run auth
+```
+
+```bash
 npm run client
-npm run websocket
+```
+
+```bash
+npm run socket
+```
+
+```bash
 npm run admin
 ```
 
@@ -132,9 +154,18 @@ For example, make a new services:
 
 ```bash
 sudo nano /etc/systemd/system/node-admin-server.service
+```
+
+```bash
 sudo nano /etc/systemd/system/node-authentication-server.service
+```
+
+```bash
 sudo nano /etc/systemd/system/node-client-server.service
-sudo nano /etc/systemd/system/node-websocket-server.service
+```
+
+```bash
+sudo nano /etc/systemd/system/node-socket-server.service
 ```
 
 Examples:
@@ -196,20 +227,20 @@ WorkingDirectory=/home/ubuntu/hynebot-control-center/client-server
 WantedBy=multi-user.target
 ```
 
-Client (node-websocket-server):
+Socket (node-socket-server):
 
 ```
 [Unit]
-Description=Automaticly start websocket-server example
+Description=Automaticly start socket-server example
 After=network.target mongod.service
 
 [Service]
-ExecStart=/home/ubuntu/.nvm/versions/node/v23.6.0/bin/node /home/ubuntu/hynebot-control-center/websocket-server/server.js
+ExecStart=/home/ubuntu/.nvm/versions/node/v23.6.0/bin/node /home/ubuntu/hynebot-control-center/socket-server/server.js
 Restart=no
 User=ubuntu
 Group=ubuntu
 Environment=NODE_ENV=production
-WorkingDirectory=/home/ubuntu/hynebot-control-center/websocket-server
+WorkingDirectory=/home/ubuntu/hynebot-control-center/socket-server
 
 [Install]
 WantedBy=multi-user.target
@@ -221,9 +252,21 @@ Once the services have been added, remember enable them.
 
 ```bash
 sudo systemctl enable node-admin-server.service
+```
+
+```bash
 sudo systemctl enable node-authentication-server.service
+```
+
+```bash
 sudo systemctl enable node-client-server.service
-sudo systemctl enable node-websocket-server.service
+```
+
+```bash
+sudo systemctl enable node-socket-server.service
+```
+
+```bash
 sudo systemctl daemon-reload
 ```
 
@@ -272,7 +315,7 @@ hynebot-control-center/
 ├── client-server/            # Client frontend server directory
 │   └── ...
 │
-├── websocket-server/         # websocket server directory
+├── socket-server/            # socket server directory
 │   └── ...
 │
 │
