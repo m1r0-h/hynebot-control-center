@@ -1,6 +1,6 @@
 # How to make a server into CSC for Hynebot Control Center
 
-This guide is made for JHC to make it easier to deploy the project. In this guide, a server is created on the CSC cPouta platform that can be used for Hynebot Conter Center.
+This guide is made for JHC to make it easier to deploy the project. In this guide, a server is created on the CSC cPouta platform that can be used for Hynebot Control Center (Server Part).
 
 ## New project
 
